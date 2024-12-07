@@ -1,0 +1,25 @@
+name: Multi-Node Agent Setup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup_agents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Setup Agent0
+        run: |
+          fab setup-agent0
+      - name: Deploy Cosmic Agents
+        run: |
+          fab deploy-cosmic-agents

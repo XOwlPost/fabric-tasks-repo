@@ -1,0 +1,10 @@
+
+# Swap and backup files
+*.swp
+*.bak
+backups/
+
+# Swap and backup files
+*.swp
+*.bak
+backups/
